@@ -7,15 +7,32 @@
  */
 
 use pizzaStore\v2\PizzaStore;
+use pizzaStore\v2\NYCheesePizza;
+use pizzaStore\v2\NYGreekPizza;
+use pizzaStore\v2\NYPepperoniPizza;
 
 class NYPizzaStore extends pizzaStore
 {
     function createPizza($pizzaType)
     {
-        $nyfactory = new NYPizzaFactory($pizzaType);
+        if($pizzaType == 'cheese'){
 
-        $pizza = $nyfactory->createPizza();
+            return new NYCheesePizza();
+        }
 
-        return $pizza;
+        elseif($pizzaType == 'greek'){
+
+            return new NYGreekPizza();
+        }
+
+        elseif($pizzaType == 'pepperoni'){
+
+            return new NYPepperoniPizza();
+        }
+
+        else{
+
+            echo 'sorry ' . $pizzaType .' pizza is not available at this time';
+        }
     }
 }

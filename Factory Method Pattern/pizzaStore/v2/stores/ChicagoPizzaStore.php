@@ -7,15 +7,29 @@
  */
 
 use pizzaStore\v2\PizzaStore;
+use pizzaStore\v2\ChicagoCheesePizza;
+use pizzaStore\v2\ChicagoGreekPizza;
+use pizzaStore\v2\ChicagoPepperoniPizza;
 
 class ChicagoPizzaStore extends PizzaStore
 {
     function createPizza($pizzaType)
     {
-        $chicagofactory = new ChicagoPizzaFactory($pizzaType);
+        if ($pizzaType == 'cheese') {
 
-        $pizza = $chicagofactory->createPizza();
+            return new ChicagoCheesePizza();
 
-        return $pizza;
+        } elseif ($pizzaType == 'greek') {
+
+            return new ChicagoGreekPizza();
+
+        } elseif ($pizzaType == 'pepperoni') {
+
+            return new ChicagoPepperoniPizza();
+
+        } else {
+
+            echo 'sorry ' . $pizzaType . ' pizza is not available at this time';
+        }
     }
 }

@@ -1,8 +1,7 @@
 <?php
-ini_set('display_errors',1);
+ini_set('display_errors',0);
 
 require './Pizza.php';
-require './SimplePizzaFactory.php';
 require './PizzaStore.php';
 
 require './pizzas/NYCheesePizza.php';
@@ -12,11 +11,13 @@ require './pizzas/ChicagoCheesePizza.php';
 require './pizzas/ChicagoGreekPizza.php';
 require './pizzas/ChicagoPepperoniPizza.php';
 
-require './factories/NYPizzaFactory.php';
-require './factories/ChicagoPizzaFactory.php';
-
 require './stores/ChicagoPizzaStore.php';
 require './stores/NYPizzaStore.php';
 
 $pizzaStore = new ChicagoPizzaStore();
 $pizzaStore->orderPizza('cheese');
+
+echo "<hr>";
+
+$pizzaStore = new NYPizzaStore();
+$pizzaStore->orderPizza('greek');
