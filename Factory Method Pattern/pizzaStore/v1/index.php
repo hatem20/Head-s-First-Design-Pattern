@@ -9,7 +9,7 @@ require './SimplePizzaFactory.php';
 
 use pizzaStore\v1\SimplePizzaFactory;
 
-$pizzaFactory = new SimplePizzaFactory('halawa');
+$pizzaFactory = new SimplePizzaFactory('cheese');
 $pizza = $pizzaFactory->createPizze();
 $pizza->preparePizza();
 $pizza->bakePizza();
